@@ -1,0 +1,26 @@
+processes = [0, 20, 30, 41, 51, 62, 100]
+head = 70
+
+def scan_right(processes, head):
+    head_move = 0
+    current_head = head
+
+    left_side = sorted([p for p in processes if p < current_head], reverse=True) # বড় থেকে ছোট
+    right_side = sorted([p for p in processes if p > current_head])              # ছোট থেকে বড়
+
+    execution_order = right_side + left_side
+
+    print("\nSCAN(Direction:Right)")
+    print("Order of processing:", current_head, end=" ")
+
+    temp_head = current_head
+    for p in execution_order:
+        movement = abs(p - temp_head)
+        head_move += movement
+        temp_head = p
+        print("-->", p, end=" ")
+
+    print("\nTotal head movement:", head_move)
+
+
+scan_right(processes, head)
