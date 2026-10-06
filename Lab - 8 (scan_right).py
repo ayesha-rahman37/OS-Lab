@@ -5,8 +5,8 @@ def scan_right(processes, head):
     head_move = 0
     current_head = head
 
-    left_side = sorted([p for p in processes if p < current_head], reverse=True) # বড় থেকে ছোট
-    right_side = sorted([p for p in processes if p > current_head])              # ছোট থেকে বড়
+    left_side = sorted([p for p in processes if p < current_head], reverse=True)
+    right_side = sorted([p for p in processes if p > current_head])            
 
     execution_order = right_side + left_side
 
